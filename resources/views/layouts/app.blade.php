@@ -49,6 +49,7 @@
     @php
         $navItems = [
             ['route' => 'dashboard',   'label' => 'Dashboard',   'icon' => 'home'],
+            ['route' => 'alumnos.index', 'label' => 'Alumnos',   'icon' => 'users'],
         ];
     @endphp
                 @foreach ($navItems as $item)
