@@ -142,12 +142,12 @@
                 </h1>
                 {{-- Acciones del topbar (slot opcional) --}}
                 <div class="flex items-center gap-2">
-                    {{ $actions ?? '' }}
+                    @yield('actions')
                 </div>
             </header>
             {{-- Contenido principal --}}
             <main class="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8">
-                {{ $slot }}
+                @yield('slot')
             </main>
         </div>
     {{-- ============== FIN CONTENIDO ============== --}}

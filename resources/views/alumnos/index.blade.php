@@ -1,6 +1,9 @@
+
 @extends('layouts.app')
 
-@php($title = 'Alumnos')
+@php
+    $title = 'Alumnos';
+@endphp
 
 @section('slot')
     <div class="space-y-4">
@@ -8,7 +11,7 @@
         {{-- Cabecera --}}
         <div class="flex items-center justify-between">
             <div>
-                <h2 class="text-lg font-semibold text-slate-800">Padrón de alumnos</h2>
+                <h2 class="text-lg font-semibold text-slate-800">Registro de Alumnos</h2>
                 <p class="text-sm text-slate-500">{{ $alumnos->total() }} alumnos registrados</p>
             </div>
             <a href="{{ route('alumnos.create') }}"
