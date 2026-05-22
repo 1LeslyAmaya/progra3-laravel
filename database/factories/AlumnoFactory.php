@@ -17,15 +17,21 @@ class AlumnoFactory extends Factory
     public function definition(): array
     {
         return [
-            'carnet'=>$this->faker->unique()->numerify('0909-26-#####'),
-            'nombres'=>$this->faker->name(),
-            'apellidos'=>$this->faker->lastName(),
-            'email'=>$this->faker->unique()->safeEmail(),
-            'telefono'=>$this->faker->phoneNumber(),
-            'fecha_nacimiento'=>$this->faker->date(),
-            'carrera'=>$this->faker->randomElement(['Ingeniería en Sistemas', 'Ingeniería Civil', 'Administración de Empresas']),
-            'semestre'=>$this->faker->numberBetween(1,12),
-            'estado'=>$this->faker->randomElement(['Activo','Inactivo','Graduado','Suspendido']),
+            'carnet' => $this->faker->unique()->numerify('0909-26-#####'),
+            'nombres' => $this->faker->firstName(),
+            'apellidos' => $this->faker->lastName(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'telefono' => $this->faker->phoneNumber(),
+            'fecha_nacimiento' => $this->faker->date(),
+            'carrera' => $this->faker->randomElement([
+                'Ingeniería en Sistemas',
+                'Ingeniería Civil',
+                'Administración de Empresas',
+                'Medicina',
+                'Derecho',
+            ]),
+            'semestre' => $this->faker->numberBetween(1, 10),
+            'estado' => $this->faker->randomElement(['activo', 'inactivo', 'graduado', 'suspendido']),
         ];
     }
 }
