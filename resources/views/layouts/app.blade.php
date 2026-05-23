@@ -15,6 +15,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-slate-100 font-sans antialiased">
+    @php
+        $currentUser = Auth::user();
+        $currentUserName = $currentUser?->name ?? 'Invitado';
+        $currentUserEmail = $currentUser?->email ?? 'Sin sesión activa';
+    @endphp
     {{-- Wrapper principal --}}
     <div class="flex h-screen overflow-hidden">
         {{-- ===================== SIDEBAR ===================== --}}
@@ -90,14 +95,14 @@
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center
                                 text-xs font-bold text-slate-300 flex-shrink-0">
-                        {{ strtoupper(substr(Auth::user()->name, 0, 2)) }}
+                        {{ strtoupper(substr($currentUserName, 0, 2)) }}
                     </div>
                     <div class="flex-1 min-w-0">
                         <p class="text-sm font-medium text-slate-200 truncate">
-                            {{ Auth::user()->name }}
+                            {{ $currentUserName }}
                         </p>
                         <p class="text-xs text-slate-500 truncate">
-                            {{ Auth::user()->email }}
+                            {{ $currentUserEmail }}
                         </p>
                     </div>
                     <form method="POST" action="{{ route('logout') }}">
